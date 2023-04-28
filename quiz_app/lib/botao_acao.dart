@@ -21,12 +21,12 @@ class BotaoAcao extends StatelessWidget {
             height: 50,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.yellow,
-                foregroundColor: Colors.black,
+                backgroundColor: Color.fromARGB(255, 184, 58, 96),
+                foregroundColor: Color.fromARGB(255, 255, 255, 255),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                   side: BorderSide(
-                    color: Colors.amber,
+                    color: Color.fromARGB(255, 129, 0, 0),
                     width: 3.0,
                   ),
                 ),

@@ -66,4 +66,7 @@ class ControladorQuiz {
       _status = StatusQuiz.RESULTADOS;
     }
   }
+
+  
+ 
 }
