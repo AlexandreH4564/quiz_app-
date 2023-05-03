@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:quiz_app/botao_alternativa.dart';
 import 'package:quiz_app/controlador_quiz.dart';
@@ -31,53 +33,52 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Quiz do Henrwue"),
-      ),
-      body:
-      controladorQuiz.verResultados?
-        Container(
-        child: Center(child: Text("Resultados")),
-      )
-        :Container(
-        padding: EdgeInsets.all(50),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                  "Questão ${controladorQuiz.indiceQuestaoAtual}/${controladorQuiz.quantidadeTotalQuestoes}"),
-              Divider(thickness: 5),
-              Text(questao.enunciado),
-              Divider(thickness: 5),
-              SizedBox(height: 10),
-              ...controladorQuiz.questaoAtual.alternativas.map(
-                (alternativa) {
-                  return BotaoAlternativa(
-                    alternativa: alternativa,
-                    acao: _selecionarAlternativa,
-                    selecionada:
-                        controladorQuiz.alternativaSelecionada == alternativa,
-                    acertou: controladorQuiz.acertouResposta,
-                    respondeu: controladorQuiz.respondeuPergunta,
-                  );
-                },
+          title: Text("Quiz do Henrwue"),
+          backgroundColor: Color.fromARGB(255, 76, 175, 80)),
+      body: controladorQuiz.verResultados
+          ? Container(
+              child: Center(child: Text("Resultados")),
+            )
+          : Container(
+              padding: EdgeInsets.all(50),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                        "Questão ${controladorQuiz.indiceQuestaoAtual}/${controladorQuiz.quantidadeTotalQuestoes}"),
+                    Divider(thickness: 5),
+                    Text(questao.enunciado),
+                    Divider(thickness: 5),
+                    SizedBox(height: 10),
+                    ...controladorQuiz.questaoAtual.alternativas.map(
+                      (alternativa) {
+                        return BotaoAlternativa(
+                          alternativa: alternativa,
+                          acao: _selecionarAlternativa,
+                          selecionada: controladorQuiz.alternativaSelecionada ==
+                              alternativa,
+                          acertou: controladorQuiz.acertouResposta,
+                          respondeu: controladorQuiz.respondeuPergunta,
+                        );
+                      },
+                    ),
+                    controladorQuiz.status != StatusQuiz.AGUARDAR
+                        ? BotaoAcao(
+                            texto: controladorQuiz.acabou
+                                ? "Resultados"
+                                : controladorQuiz.respondeuPergunta
+                                    ? "Próxima"
+                                    : "Responder",
+                            acao: _proximaPergunta,
+                          )
+                        : SizedBox(
+                            height: 100,
+                          )
+                  ],
+                ),
               ),
-              controladorQuiz.status != StatusQuiz.AGUARDAR
-                  ? BotaoAcao(
-                      texto: controladorQuiz.selecionouAlternativa
-                          ? "Resultados"
-                          : controladorQuiz.selecionouAlternativa
-                              ? "Responder"
-                              : "Próxima pergunta",
-                      acao: _proximaPergunta,
-                    )
-                  : SizedBox(
-                      height: 100,
-                    )
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }

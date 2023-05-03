@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class BotaoAlternativa extends StatelessWidget {
@@ -27,14 +25,14 @@ class BotaoAlternativa extends StatelessWidget {
           height: 50,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 97, 162, 247),
-              foregroundColor: Color.fromARGB(255, 255, 255, 255),
+              backgroundColor: Color.fromARGB(255, 255, 255, 255),
+              foregroundColor: Color.fromARGB(255, 0, 0, 0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(50),
                 side: BorderSide(
                   color: selecionada
-                      ? Color.fromARGB(255, 0, 93, 129)
-                      : Colors.white,
+                      ? Color.fromARGB(255, 76, 175, 80)
+                      : Color.fromARGB(255, 0, 0, 0),
                   width: 3.0,
                 ),
               ),

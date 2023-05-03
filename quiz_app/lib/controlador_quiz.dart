@@ -21,6 +21,8 @@ class ControladorQuiz {
   bool _respondeu = false;
   // controla a questão atual
   int _indiceQuestaoAtual = 0;
+  int _pontuacao = 0;
+  int _numeroTotalPerguntas = 0;
 
   int get indiceQuestaoAtual => _indiceQuestaoAtual + 1;
   Questao get questaoAtual => repositorio.listar()[_indiceQuestaoAtual];
@@ -35,6 +37,9 @@ class ControladorQuiz {
 
   bool get acabou => _status == StatusQuiz.FINALIZAR;
   bool get verResultados => _status == StatusQuiz.RESULTADOS;
+
+  List<String> _respostasUsuario = [];
+  List<int> _perguntasErradas = [];
 
   void selecionarAlternativa(String alternativa) {
     _alternativaSelecionada = alternativa;
@@ -64,9 +69,17 @@ class ControladorQuiz {
       //se terminou mostrar os resultados
     } else if (_status == StatusQuiz.FINALIZAR) {
       _status = StatusQuiz.RESULTADOS;
+
+      void verificarRespostasUsuario() {
+        _numeroTotalPerguntas = repositorio.listar().length;
+        for (int i = 0; i < _respostasUsuario.length; i++) {
+          if (questaoAtual.alternativaCorreta == _respostasUsuario[i]) {
+            _pontuacao++;
+          } else {
+            _perguntasErradas.add(i);
+          }
+        }
+      }
     }
   }
-
-  
- 
 }

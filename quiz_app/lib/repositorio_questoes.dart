@@ -2,30 +2,21 @@ import 'questao.dart';
 
 final lista_questoes = [
   Questao(
-    enunciado: "Quais são os quatro fundamentos da orientação a objetos?",
-    alternativaCorreta: "Abstração, Encapsulamento, Polimorfismo e Herança.",
-    alternativasIncorretas: [
-      "Herança, Etarismo, Abstração e Polimorfismo.",
-      "Derivação, Herança, Polimorfismo e Encapsulamento.",
-      "Doação, Herança, Abstração e Derivação.",
-    ],
-  ),
-  Questao(
-    enunciado: "Qual é a função de um Project Manager?",
-    alternativaCorreta: "Responsável por estar à frente de um projeto.",
-    alternativasIncorretas: [
-      "Responsável por estar à frente de um projeto.",
-      "Responsável pela programação.",
-      "Responsável por fazer pagamentos.",
-    ],
-  ),
-  Questao(
     enunciado: "Como é chamada a parte física do computador?",
     alternativaCorreta: "Hardware",
     alternativasIncorretas: [
       "Framework",
       "Firework",
       "Desktop",
+    ],
+  ),
+  Questao(
+    enunciado: "Qual é a função de um Project Manager?",
+    alternativaCorreta: "Estar à frente de um projeto.",
+    alternativasIncorretas: [
+      "Estar à atrás de um projeto.",
+      "Responsável pela programação.",
+      "Responsável por fazer pagamentos.",
     ],
   ),
   Questao(
@@ -57,12 +48,11 @@ final lista_questoes = [
   ),
   Questao(
     enunciado: "O que é UML?",
-    alternativaCorreta:
-        "Uma linguagem de notação utilizada para modelar e documentar.",
+    alternativaCorreta: "Uma linguagem de notação",
     alternativasIncorretas: [
       "Um Framework.",
-      "Uma linguagem de Banco de Dados.",
-      "Uma linguagem de programação para web.",
+      "Uma linguagem BD.",
+      "Uma linguagem Web.",
     ],
   ),
   Questao(
@@ -75,23 +65,23 @@ final lista_questoes = [
     ],
   ),
   Questao(
-    enunciado: "O que é FrontEnd",
-    alternativaCorreta:
-        "A parte visual de um site, aquilo que conseguimos interagir.",
+    enunciado:
+        "A parte visual de um site, aquilo que conseguimos interagir, Seria:",
+    alternativaCorreta: "FrontEnd.",
     alternativasIncorretas: [
-      "É a área que armazena os dados sendo consumidos ou manipulados pelo aplicativos ou softwares.",
+      "BackEnd.",
       "É uma área de c++.",
-      "É a parte lógica de uma aplicação web.",
+      "Aplicação web.",
     ],
   ),
   Questao(
-    enunciado: "O que é BackEnd?",
-    alternativaCorreta:
-        "É a área que armazena os dados sendo consumidos ou manipulados pelo aplicativos ou softwares.",
+    enunciado:
+        "É a área que armazena os dados sendo consumidos ou manipulados pelo aplicativos ou softwares:",
+    alternativaCorreta: "BackEnd.",
     alternativasIncorretas: [
-      "A parte visual de um site, aquilo que conseguimos interagir.",
-      "É a parte de armazentamento de Dados web.",
-      "É a parte não funcional de um sistema.",
+      "FrontEnd.",
+      "SideEnd.",
+      "ShortEnd",
     ],
   ),
 ];
